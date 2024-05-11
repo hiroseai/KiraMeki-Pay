@@ -1,0 +1,388 @@
+    // SP用ブラウザ幅連動
+    @function vw($px) {
+        @return calc($px * 100vw / 390); // 390pxはカンプの幅を記述
+    }
+
+    // PC用ブラウザ幅連動
+    // ヘッダー・カバーなどブラウザ幅一杯のコンテンツ用
+    @function vwPC($px) {
+        @return calc($px * 100vw / 1920); // 1536pxはカンプの幅を記述
+    }
+
+    @function px2Rem($px) {
+        @return calc($px / 16) * 1rem;
+    }
+
+    // 下記でmin/max関数をScssの関数ではなくcssの関数として出力するためのラッパー
+    @function min($values...) {
+        @return unquote('min(#{$values})');
+    }
+
+    @function max($values...) {
+        @return unquote('max(#{$values})');
+    }
+
+    // PC用途中までブラウザ幅連動。$pxより大きくなったら$pxにする関数
+    // マイナスの値も対応。
+    @function mvw($px) {
+        // 1200pxはカンプ幅ではなくコンテンツ幅(コンテンツ左右のガイド線間の幅 + 少し余白)
+        $value1: calc($px * 100vw / 1200);
+        $value2: px2Rem($px);
+
+        @if $px >=0 {
+            @return min($value1, $value2);
+        }
+
+        @else {
+            @return max($value1, $value2);
+        }
+    }
+
+
+
+
+    $breakpoints: (
+        "sm": "screen and (min-width: 400px)",
+        "md": "screen and (min-width: 768px)",
+        "lg": "screen and (min-width: 1000px)",
+        "xl": "screen and (min-width: 1200px)",
+        ) !default;
+
+    @mixin mq($breakpoint: md) {
+        @media #{map-get($breakpoints, $breakpoint)} {
+            @content;
+        }
+    }
+
+
+    // 使用例
+    // .header {
+    //     font-size: vw(20);
+    //     @include mq(xl) {
+    //       font-size: rm(18);
+    //    }
+    // }
+
+    // 引数なしで768px
+    // @include mq() {
+    //   color: yellow;
+    // }
+
+
+
+
+
+    body {
+        font-family: "Zen Kaku Gothic New",
+            sans-serif;
+        line-height: 1.5;
+        font-size: 1rem;
+        color: #000000;
+    }
+
+    a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        vertical-align: bottom;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .container {
+        overflow: hidden;
+    }
+
+    .container-body {
+        width: 100%;
+        margin: 0 auto;
+
+        @include mq() {
+            max-width: vwPC(1200
+            );
+    }
+    }
+
+    /* top
+------------------------------------------ */
+    .top {
+        background-color: #fd5b19;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .top__logo {
+        width: 100%;
+
+        @include mq() {
+            width: 100%;
+        }
+    }
+
+    .top__image {
+        width: 100%;
+
+        @include mq() {
+            width: 100%;
+        }
+    }
+
+    .top__text {
+        font-size: vw(38);
+        font-weight: 700;
+        font-family: "Outfit",
+            sans-serif;
+        line-height: calc(48 / 38);
+        color: #ffffff;
+
+        @include mq() {
+            font-size: vwPC(64);
+            line-height: calc(80 / 64);
+        }
+    }
+
+    .top__text-sub {
+        font-size: vw(15);
+        font-weight: 700;
+        line-height: calc(21 / 15);
+        color: #ffffff;
+
+        @include mq() {
+            font-size: vwPC(25);
+            line-height: calc(36 / 25);
+        }
+    }
+
+    /* download
+------------------------------------------ */
+    .download {
+        background-color: #bce0eb;
+    }
+
+    .download__container {
+        padding: 1rem 0 1rem 0;
+
+        @include mq() {
+            padding: 1rem 0 1rem 0;
+        }
+    }
+
+    .download__text {
+        font-size: vw(14);
+        font-weight: 700;
+        line-height: calc(20 / 14);
+        color: #004da4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        @include mq() {
+            font-size: vwPC(20);
+            line-height: calc(29 / 20);
+            margin-bottom: 1rem;
+        }
+    }
+
+    .download__text::before {
+        content: "";
+        border-left: 1px solid #004da4;
+        transform: rotate(-30deg);
+        height: vw(32);
+        margin-right: 1rem;
+    }
+
+    .download__text::after {
+        content: "";
+        border-left: 1px solid #004da4;
+        transform: rotate(30deg);
+        height: vw(32);
+        margin-right: 1rem;
+    }
+
+    .download__button {
+        font-size: vw(15);
+        font-weight: 700;
+        line-height: 1;
+        color: #ffffff;
+        background-color: #004da4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: vw(232);
+        margin: 0 auto;
+        padding: 0.5rem 0 0.5rem 0;
+
+        @include mq() {
+            font-size: vwPC(22);
+            max-width: vwPC(232);
+            margin: 0 auto;
+            padding: 0.5rem 0 0.5rem 0;
+        }
+    }
+
+    /* reasons
+------------------------------------------ */
+    .reasons {
+        background-color: #fffaf5;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .reasons__container {
+        padding: 1rem 1rem 1rem 1rem;
+
+        @include mq() {
+            padding: 1rem 0 1rem 0;
+        }
+    }
+
+    .reasons__title-body {
+        text-align: center;
+    }
+
+    .reasons__title--br {
+        display: inline-block;
+    }
+
+    .reasons__sub-title {
+        font-size: vw(16);
+        font-weight: 700;
+        font-family: "Outfit",
+            sans-serif;
+        line-height: calc(20 / 16);
+        color: #003e92;
+        display: block;
+        text-align: center;
+        margin-bottom: 1rem;
+
+        @include mq() {
+            font-size: vwPC(20);
+            line-height: calc(25 / 20);
+            margin-bottom: 1rem;
+        }
+    }
+
+    .reasons__title {
+        font-size: vw(20);
+        font-weight: 700;
+        line-height: calc(24 / 20);
+        text-align: center;
+        margin-bottom: 1rem;
+
+        @include mq() {
+            font-size: vwPC(48);
+            line-height: calc(60 / 48);
+            margin-bottom: 1rem;
+        }
+    }
+
+    .reasons__title-change {
+        font-size: vw(30);
+        font-weight: 700;
+        font-family: "Outfit",
+            sans-serif;
+        color: #fd5b19;
+        line-height: calc(38 / 30);
+
+        @include mq() {
+            font-size: vwPC(50);
+            line-height: calc(50 / 40);
+        }
+    }
+
+    .reasons__text {
+        font-size: vw(16);
+        font-weight: 400;
+        line-height: calc(20 / 16);
+        margin-bottom: 1rem;
+
+        @include mq() {
+            font-size: vwPC(16);
+            line-height: calc(32 / 16);
+            margin-bottom: 1rem;
+        }
+    }
+
+    .reasons__list {
+        @include mq() {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    .reasons__item {
+        position: relative;
+
+        @include mq() {
+            flex: 1;
+        }
+    }
+
+    .reasons__item-number {
+        font-size: vw(40);
+        font-weight: 700;
+        font-family: "Outfit",
+            sans-serif;
+        line-height: calc(50 / 40);
+        color: #fd5b19;
+        position: absolute;
+        top: -1%;
+        left: 24%;
+
+        @include mq() {
+            font-size: vwPC(56);
+            line-height: calc(71 / 56);
+            position: absolute;
+            top: -1.5rem;
+            left: 6rem;
+        }
+    }
+
+    .reasons__item-image {
+        background-color: #ffffff;
+        border-radius: 50%;
+        width: vw(180);
+        height: vw(180);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+
+        @include mq() {
+            width: vwPC(238);
+            height: vwPC(238);
+        }
+    }
+
+    .reasons__item-image-inner {
+        width: 50%;
+
+        @include mq() {
+            width: 50%;
+        }
+    }
+
+    .reasons__item-text {
+        font-size: vw(18);
+        font-weight: 700;
+        line-height: calc(35 / 18);
+        text-align: center;
+        margin-bottom: 1rem;
+
+        @include mq() {
+            font-size: vwPC(20);
+            line-height: calc(35 / 20);
+            margin-bottom: 1rem;
+        }
+    }

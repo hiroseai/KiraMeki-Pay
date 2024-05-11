@@ -1,0 +1,346 @@
+body {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  line-height: 1.5;
+  font-size: 1rem;
+  color: #000000;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  overflow: hidden;
+}
+
+.container-body {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container-body {
+    max-width: 62.5vw;
+  }
+}
+
+/* top
+------------------------------------------ */
+.top {
+  background-color: #fd5b19;
+}
+
+.top img {
+  width: 100%;
+}
+
+.top__logo {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .top__logo {
+    width: 100%;
+  }
+}
+
+.top__image {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .top__image {
+    width: 100%;
+  }
+}
+
+.top__text {
+  font-size: 9.7435897436vw;
+  font-weight: 700;
+  font-family: "Outfit", sans-serif;
+  line-height: 1.2631578947;
+  color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .top__text {
+    font-size: 3.3333333333vw;
+    line-height: 1.25;
+  }
+}
+
+.top__text-sub {
+  font-size: 3.8461538462vw;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .top__text-sub {
+    font-size: 1.3020833333vw;
+    line-height: 1.44;
+  }
+}
+
+/* download
+------------------------------------------ */
+.download {
+  background-color: #bce0eb;
+}
+
+.download__container {
+  padding: 1rem 0 1rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  .download__container {
+    padding: 1rem 0 1rem 0;
+  }
+}
+
+.download__text {
+  font-size: 3.5897435897vw;
+  font-weight: 700;
+  line-height: 1.4285714286;
+  color: #004da4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .download__text {
+    font-size: 1.0416666667vw;
+    line-height: 1.45;
+    margin-bottom: 1rem;
+  }
+}
+
+.download__text::before {
+  content: "";
+  border-left: 1px solid #004da4;
+  transform: rotate(-30deg);
+  height: 8.2051282051vw;
+  margin-right: 1rem;
+}
+
+.download__text::after {
+  content: "";
+  border-left: 1px solid #004da4;
+  transform: rotate(30deg);
+  height: 8.2051282051vw;
+  margin-right: 1rem;
+}
+
+.download__button {
+  font-size: 3.8461538462vw;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+  background-color: #004da4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 59.4871794872vw;
+  margin: 0 auto;
+  padding: 0.5rem 0 0.5rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  .download__button {
+    font-size: 1.1458333333vw;
+    max-width: 12.0833333333vw;
+    margin: 0 auto;
+    padding: 0.5rem 0 0.5rem 0;
+  }
+}
+
+/* reasons
+------------------------------------------ */
+.reasons {
+  background-color: #fffaf5;
+}
+
+.reasons img {
+  width: 100%;
+}
+
+.reasons__container {
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .reasons__container {
+    padding: 1rem 0 1rem 0;
+  }
+}
+
+.reasons__title-body {
+  text-align: center;
+}
+
+.reasons__title--br {
+  display: inline-block;
+}
+
+.reasons__sub-title {
+  font-size: 4.1025641026vw;
+  font-weight: 700;
+  font-family: "Outfit", sans-serif;
+  line-height: 1.25;
+  color: #003e92;
+  display: block;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .reasons__sub-title {
+    font-size: 1.0416666667vw;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+}
+
+.reasons__title {
+  font-size: 5.1282051282vw;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .reasons__title {
+    font-size: 2.5vw;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+}
+
+.reasons__title-change {
+  font-size: 7.6923076923vw;
+  font-weight: 700;
+  font-family: "Outfit", sans-serif;
+  color: #fd5b19;
+  line-height: 1.2666666667;
+}
+
+@media screen and (min-width: 768px) {
+  .reasons__title-change {
+    font-size: 2.6041666667vw;
+    line-height: 1.25;
+  }
+}
+
+.reasons__text {
+  font-size: 4.1025641026vw;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .reasons__text {
+    font-size: 0.8333333333vw;
+    line-height: 2;
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .reasons__list {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.reasons__item {
+  position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  .reasons__item {
+    flex: 1;
+  }
+}
+
+.reasons__item-number {
+  font-size: 10.2564102564vw;
+  font-weight: 700;
+  font-family: "Outfit", sans-serif;
+  line-height: 1.25;
+  color: #fd5b19;
+  position: absolute;
+  top: -1%;
+  left: 24%;
+}
+
+@media screen and (min-width: 768px) {
+  .reasons__item-number {
+    font-size: 2.9166666667vw;
+    line-height: 1.2678571429;
+    position: absolute;
+    top: -1.5rem;
+    left: 6rem;
+  }
+}
+
+.reasons__item-image {
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 46.1538461538vw;
+  height: 46.1538461538vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .reasons__item-image {
+    width: 12.3958333333vw;
+    height: 12.3958333333vw;
+  }
+}
+
+.reasons__item-image-inner {
+  width: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  .reasons__item-image-inner {
+    width: 50%;
+  }
+}
+
+.reasons__item-text {
+  font-size: 4.6153846154vw;
+  font-weight: 700;
+  line-height: 1.9444444444;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .reasons__item-text {
+    font-size: 1.0416666667vw;
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
