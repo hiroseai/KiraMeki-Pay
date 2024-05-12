@@ -1,7 +1,6 @@
 body {
   font-family: "Zen Kaku Gothic New", sans-serif;
   line-height: 1.5;
-  font-size: 1rem;
   color: #000000;
 }
 
@@ -28,7 +27,6 @@ li {
   width: 100%;
   margin: 0 auto;
 }
-
 @media screen and (min-width: 768px) {
   .container-body {
     max-width: 62.5vw;
@@ -40,15 +38,23 @@ li {
 .top {
   background-color: #fd5b19;
 }
-
 .top img {
   width: 100%;
 }
 
-.top__logo {
-  width: 100%;
+.top__container {
+  padding: 2.8717948718vw 0 12.3076923077vw 0;
+}
+@media screen and (min-width: 768px) {
+  .top__container {
+    padding: 1rem 0 1rem 0;
+  }
 }
 
+.top__logo {
+  width: 38%;
+  margin: 0 auto 8.2051282051vw;
+}
 @media screen and (min-width: 768px) {
   .top__logo {
     width: 100%;
@@ -56,12 +62,22 @@ li {
 }
 
 .top__image {
-  width: 100%;
+  width: 71%;
+  margin: 0 auto 4.9230769231vw;
 }
-
 @media screen and (min-width: 768px) {
   .top__image {
     width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.top__text-box {
+  padding-left: 4.1025641026vw;
+}
+@media screen and (min-width: 768px) {
+  .top__text-box {
+    padding-left: 1rem;
   }
 }
 
@@ -71,12 +87,13 @@ li {
   font-family: "Outfit", sans-serif;
   line-height: 1.2631578947;
   color: #ffffff;
+  margin-bottom: 2.0512820513vw;
 }
-
 @media screen and (min-width: 768px) {
   .top__text {
     font-size: 3.3333333333vw;
     line-height: 1.25;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -86,7 +103,6 @@ li {
   line-height: 1.4;
   color: #ffffff;
 }
-
 @media screen and (min-width: 768px) {
   .top__text-sub {
     font-size: 1.3020833333vw;
@@ -101,9 +117,8 @@ li {
 }
 
 .download__container {
-  padding: 1rem 0 1rem 0;
+  padding: 5.7435897436vw 0 6.1538461538vw 0;
 }
-
 @media screen and (min-width: 768px) {
   .download__container {
     padding: 1rem 0 1rem 0;
@@ -118,9 +133,8 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2307692308vw;
 }
-
 @media screen and (min-width: 768px) {
   .download__text {
     font-size: 1.0416666667vw;
@@ -134,7 +148,7 @@ li {
   border-left: 1px solid #004da4;
   transform: rotate(-30deg);
   height: 8.2051282051vw;
-  margin-right: 1rem;
+  margin-right: 4.1025641026vw;
 }
 
 .download__text::after {
@@ -142,7 +156,7 @@ li {
   border-left: 1px solid #004da4;
   transform: rotate(30deg);
   height: 8.2051282051vw;
-  margin-right: 1rem;
+  margin-left: 4.1025641026vw;
 }
 
 .download__button {
@@ -151,14 +165,14 @@ li {
   line-height: 1;
   color: #ffffff;
   background-color: #004da4;
+  border-radius: 1.2307692308vw;
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 59.4871794872vw;
   margin: 0 auto;
-  padding: 0.5rem 0 0.5rem 0;
+  padding: 3.8974358974vw 0 3.8974358974vw 0;
 }
-
 @media screen and (min-width: 768px) {
   .download__button {
     font-size: 1.1458333333vw;
@@ -168,20 +182,29 @@ li {
   }
 }
 
+/* about
+------------------------------------------ */
+.about {
+  height: 194.0512820513vw;
+}
+@media screen and (min-width: 768px) {
+  .about {
+    height: 10rem;
+  }
+}
+
 /* reasons
 ------------------------------------------ */
 .reasons {
   background-color: #fffaf5;
 }
-
 .reasons img {
   width: 100%;
 }
 
 .reasons__container {
-  padding: 1rem 1rem 1rem 1rem;
+  padding: 10.2564102564vw 3.8461538462vw 1rem 3.8461538462vw;
 }
-
 @media screen and (min-width: 768px) {
   .reasons__container {
     padding: 1rem 0 1rem 0;
@@ -204,9 +227,8 @@ li {
   color: #003e92;
   display: block;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2.0512820513vw;
 }
-
 @media screen and (min-width: 768px) {
   .reasons__sub-title {
     font-size: 1.0416666667vw;
@@ -220,9 +242,8 @@ li {
   font-weight: 700;
   line-height: 1.2;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 4.1025641026vw;
 }
-
 @media screen and (min-width: 768px) {
   .reasons__title {
     font-size: 2.5vw;
@@ -231,17 +252,30 @@ li {
   }
 }
 
-.reasons__title-change {
+.reasons__title--orange {
   font-size: 7.6923076923vw;
   font-weight: 700;
   font-family: "Outfit", sans-serif;
   color: #fd5b19;
   line-height: 1.2666666667;
+  margin-right: 1.2307692308vw;
+}
+@media screen and (min-width: 768px) {
+  .reasons__title--orange {
+    font-size: 2.6041666667vw;
+    line-height: 1.25;
+  }
 }
 
+.reasons__title--big {
+  font-size: 8.2051282051vw;
+  font-weight: 700;
+  font-family: "Outfit", sans-serif;
+  line-height: 1.25;
+}
 @media screen and (min-width: 768px) {
-  .reasons__title-change {
-    font-size: 2.6041666667vw;
+  .reasons__title--big {
+    font-size: 2.5vw;
     line-height: 1.25;
   }
 }
@@ -250,9 +284,8 @@ li {
   font-size: 4.1025641026vw;
   font-weight: 400;
   line-height: 1.25;
-  margin-bottom: 1rem;
+  margin-bottom: 4.1025641026vw;
 }
-
 @media screen and (min-width: 768px) {
   .reasons__text {
     font-size: 0.8333333333vw;
@@ -271,7 +304,6 @@ li {
 .reasons__item {
   position: relative;
 }
-
 @media screen and (min-width: 768px) {
   .reasons__item {
     flex: 1;
@@ -288,7 +320,6 @@ li {
   top: -1%;
   left: 24%;
 }
-
 @media screen and (min-width: 768px) {
   .reasons__item-number {
     font-size: 2.9166666667vw;
@@ -309,7 +340,6 @@ li {
   align-items: center;
   margin: 0 auto;
 }
-
 @media screen and (min-width: 768px) {
   .reasons__item-image {
     width: 12.3958333333vw;
@@ -320,7 +350,6 @@ li {
 .reasons__item-image-inner {
   width: 50%;
 }
-
 @media screen and (min-width: 768px) {
   .reasons__item-image-inner {
     width: 50%;
@@ -332,15 +361,12 @@ li {
   font-weight: 700;
   line-height: 1.9444444444;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 4.1025641026vw;
 }
-
 @media screen and (min-width: 768px) {
   .reasons__item-text {
     font-size: 1.0416666667vw;
     line-height: 1.75;
     margin-bottom: 1rem;
   }
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
