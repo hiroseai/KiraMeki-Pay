@@ -1,19 +1,15 @@
-// SP用ブラウザ幅連動
 @function vw($px) {
-    @return calc($px * 100vw / 390); // 390pxはカンプの幅を記述
+    @return calc($px * 100vw / 390);
 }
 
-// PC用ブラウザ幅連動
-// ヘッダー・カバーなどブラウザ幅一杯のコンテンツ用
 @function vwPC($px) {
-    @return calc($px * 100vw / 1920); // 1536pxはカンプの幅を記述
+    @return calc($px * 100vw / 1920);
 }
 
 @function px2Rem($px) {
     @return calc($px / 16) * 1rem;
 }
 
-// 下記でmin/max関数をScssの関数ではなくcssの関数として出力するためのラッパー
 @function min($values...) {
     @return unquote('min(#{$values})');
 }
@@ -22,10 +18,7 @@
     @return unquote('max(#{$values})');
 }
 
-// PC用途中までブラウザ幅連動。$pxより大きくなったら$pxにする関数
-// マイナスの値も対応。
 @function mvw($px) {
-    // 1200pxはカンプ幅ではなくコンテンツ幅(コンテンツ左右のガイド線間の幅 + 少し余白)
     $value1: calc($px * 100vw / 1200);
     $value2: px2Rem($px);
 
@@ -37,9 +30,6 @@
         @return max($value1, $value2);
     }
 }
-
-
-
 
 $breakpoints: (
     "sm": "screen and (min-width: 400px)",
@@ -54,24 +44,8 @@ $breakpoints: (
     }
 }
 
-
-// 使用例
-// .header {
-//     font-size: vw(20);
-//     @include mq(xl) {
-//       font-size: rm(18);
-//    }
-// }
-
-// 引数なしで768px
-// @include mq() {
-//   color: yellow;
-// }
-
-
-
-
-
+/* ページ全体のスタイル
+------------------------------------------ */
 body {
     font-family: "Zen Kaku Gothic New",
         sans-serif;
@@ -103,7 +77,7 @@ li {
     margin: 0 auto;
 
     @include mq() {
-        max-width: vwPC(1200
+        max-width: mvw(1200
         );
 }
 }
@@ -123,7 +97,8 @@ li {
     padding: vw(11.2) 0 vw(48) 0;
 
     @include mq() {
-        padding: 1rem 0 1rem 0;
+        padding: 0 mvw(16) mvw(24) mvw(16);
+        position: relative;
     }
 }
 
@@ -132,7 +107,21 @@ li {
     margin: 0 auto vw(32);
 
     @include mq() {
-        width: 100%;
+        width: 16.5%;
+        position: absolute;
+        top: mvw(27.2);
+        left: mvw(16);
+        margin: 0;
+    }
+}
+
+.top__wrapper {
+    @include mq() {
+        display: flex;
+        flex-direction: row-reverse;
+        padding-top: mvw(24);
+        justify-content: center;
+        align-items: center;
     }
 }
 
@@ -141,8 +130,9 @@ li {
     margin: 0 auto vw(19.2);
 
     @include mq() {
-        width: 100%;
+        width: 47%;
         margin: 0 auto;
+        padding: 0 mvw(64) 0 mvw(8);
     }
 }
 
@@ -150,22 +140,23 @@ li {
     padding-left: vw(16);
 
     @include mq() {
-        padding-left: 1rem;
+        width: 53%;
+        padding-left: mvw(64);
     }
 }
 
 .top__text {
-    font-size: 9.7435897436vw;
+    font-size: vw(38);
     font-weight: 700;
     font-family: "Outfit", sans-serif;
-    line-height: 1.2631578947;
+    line-height: calc(48 / 38);
     color: #ffffff;
     margin-bottom: vw(8);
 
     @include mq() {
-        font-size: vwPC(64);
+        font-size: mvw(64);
         line-height: calc(80 / 64);
-        margin-bottom: 0.5rem;
+        margin-bottom: mvw(19.2);
     }
 }
 
@@ -176,7 +167,7 @@ li {
     color: #ffffff;
 
     @include mq() {
-        font-size: vwPC(25);
+        font-size: mvw(25);
         line-height: calc(36 / 25);
     }
 }
@@ -191,14 +182,14 @@ li {
     padding: vw(22.4) 0 vw(24) 0;
 
     @include mq() {
-        padding: 1rem 0 1rem 0;
+        padding: mvw(38.4) 0 mvw(41.6) 0;
     }
 }
 
 .download__text {
-    font-size: 3.5897435897vw;
+    font-size: vw(14);
     font-weight: 700;
-    line-height: 1.4285714286;
+    line-height: calc(20 / 14);
     color: #004da4;
     display: flex;
     justify-content: center;
@@ -206,9 +197,9 @@ li {
     margin-bottom: vw(4.8);
 
     @include mq() {
-        font-size: vwPC(20);
+        font-size: mvw(20);
         line-height: calc(29 / 20);
-        margin-bottom: 1rem;
+        margin-bottom: mvw(16);
     }
 }
 
@@ -218,6 +209,12 @@ li {
     transform: rotate(-30deg);
     height: vw(32);
     margin-right: vw(16);
+
+    @include mq() {
+        transform: rotate(-30deg);
+        height: mvw(45.85);
+        margin-right: mvw(20.8);
+    }
 }
 
 .download__text::after {
@@ -226,10 +223,16 @@ li {
     transform: rotate(30deg);
     height: vw(32);
     margin-left: vw(16);
+
+    @include mq() {
+        transform: rotate(30deg);
+        height: mvw(45.85);
+        margin-left: mvw(20.8);
+    }
 }
 
 .download__button {
-    font-size: 3.8461538462vw;
+    font-size: vw(15);
     font-weight: 700;
     line-height: 1;
     color: #ffffff;
@@ -238,16 +241,20 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 59.4871794872vw;
+    max-width: vw(232);
     margin: 0 auto;
     padding: vw(15.2) 0 vw(15.2) 0;
 
     @include mq() {
-        font-size: vwPC(22);
-        max-width: vwPC(232);
-        margin: 0 auto;
-        padding: 0.5rem 0 0.5rem 0;
+        font-size: mvw(22);
+        border-radius: 0.5rem;
+        max-width: mvw(338);
+        padding: mvw(21.04) 0 mvw(21.04) 0;
     }
+}
+
+.download__button:hover {
+    opacity: 0.6;
 }
 
 /* about
@@ -256,7 +263,7 @@ li {
     height: vw(756.8);
 
     @include mq() {
-        height: 10rem;
+        height: mvw(756);
     }
 }
 
@@ -271,15 +278,20 @@ li {
 }
 
 .reasons__container {
-    padding: vw(40) vw(15) 1rem vw(15);
+    padding: vw(40) vw(15) vw(19.2) vw(15);
 
     @include mq() {
-        padding: 1rem 0 1rem 0;
+        max-width: mvw(960);
+        padding: mvw(80) mvw(32) mvw(75.2) mvw(32);
     }
 }
 
 .reasons__title-body {
     text-align: center;
+
+    @include mq() {
+        margin-bottom: mvw(4.8);
+    }
 }
 
 .reasons__title--br {
@@ -298,9 +310,9 @@ li {
     margin-bottom: vw(8);
 
     @include mq() {
-        font-size: vwPC(20);
+        font-size: mvw(20);
         line-height: calc(25 / 20);
-        margin-bottom: 1rem;
+        margin-bottom: mvw(8);
     }
 }
 
@@ -309,12 +321,14 @@ li {
     font-weight: 700;
     line-height: calc(24 / 20);
     text-align: center;
-    margin-bottom: vw(16);
+    margin-bottom: vw(24);
 
     @include mq() {
-        font-size: vwPC(48);
-        line-height: calc(60 / 48);
-        margin-bottom: 1rem;
+        font-size: mvw(28);
+        line-height: calc(40 / 28);
+        padding-left: mvw(1.6);
+        margin-bottom: mvw(16);
+        letter-spacing: -0.04em;
     }
 }
 
@@ -328,8 +342,10 @@ li {
     margin-right: vw(4.8);
 
     @include mq() {
-        font-size: vwPC(50);
+        font-size: mvw(40);
         line-height: calc(50 / 40);
+        margin-right: mvw(8);
+        letter-spacing: -0.003em;
     }
 }
 
@@ -341,7 +357,7 @@ li {
     line-height: calc(40 / 32);
 
     @include mq() {
-        font-size: vwPC(48);
+        font-size: mvw(48);
         line-height: calc(60 / 48);
     }
 }
@@ -349,13 +365,13 @@ li {
 .reasons__text {
     font-size: vw(16);
     font-weight: 400;
-    line-height: calc(20 / 16);
-    margin-bottom: vw(16);
+    line-height: 1.75;
+    margin-bottom: vw(48);
 
     @include mq() {
-        font-size: vwPC(16);
+        font-size: mvw(16);
         line-height: calc(32 / 16);
-        margin-bottom: 1rem;
+        margin-bottom: mvw(64);
     }
 }
 
@@ -367,34 +383,40 @@ li {
 }
 
 .reasons__item {
-    position: relative;
+    margin-bottom: vw(45.6);
 
     @include mq() {
         flex: 1;
+        margin-bottom: 0;
     }
+}
+
+.reasons__item:last-child {
+    margin-bottom: 0;
 }
 
 .reasons__item-number {
     font-size: vw(40);
     font-weight: 700;
-    font-family: "Outfit",
-        sans-serif;
-    line-height: calc(50 / 40);
+    font-family: "Outfit", sans-serif;
+    line-height: 1.25;
     color: #fd5b19;
     position: absolute;
-    top: -1%;
-    left: 24%;
+    top: -10%;
+    left: 0;
+
 
     @include mq() {
-        font-size: vwPC(56);
+        font-size: mvw(56);
         line-height: calc(71 / 56);
         position: absolute;
-        top: -1.5rem;
-        left: 6rem;
+        top: -15%;
+        left: 0;
     }
 }
 
 .reasons__item-image {
+    position: relative;
     background-color: #ffffff;
     border-radius: 50%;
     width: vw(180);
@@ -402,19 +424,28 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    margin: 0 auto vw(3.2);
 
     @include mq() {
-        width: vwPC(238);
-        height: vwPC(238);
+        width: mvw(238);
+        height: mvw(238);
+        margin: 0 auto mvw(19.2);
     }
 }
 
-.reasons__item-image-inner {
-    width: 50%;
+.reasons__image-inner {
+    width: 55%;
 
     @include mq() {
-        width: 50%;
+        width: 55%;
+    }
+}
+
+.reasons__image-inner--small {
+    width: 37%;
+
+    @include mq() {
+        width: 37%;
     }
 }
 
@@ -426,8 +457,8 @@ li {
     margin-bottom: vw(16);
 
     @include mq() {
-        font-size: vwPC(20);
+        font-size: mvw(20);
         line-height: calc(35 / 20);
-        margin-bottom: 1rem;
+        margin-bottom: 0;
     }
 }
